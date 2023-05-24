@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>flask基础(2) | yyz notes</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/img/favicon.ico">
+    <meta name="description" content="个人笔记总结">
+    <meta name="keywords" content="个人技术博客,技术文档,学习,面试">
+    <meta name="baidu-site-verification" content="7F55weZDDc">
+    <meta name="theme-color" content="#11a8cd">
+    
+    <link rel="preload" href="/assets/css/0.styles.008dd71f.css" as="style"><link rel="preload" href="/assets/js/app.4d9762f5.js" as="script"><link rel="preload" href="/assets/js/2.eb47357b.js" as="script"><link rel="preload" href="/assets/js/202.a1461cd3.js" as="script"><link rel="prefetch" href="/assets/js/10.3c51181e.js"><link rel="prefetch" href="/assets/js/100.f26be4a2.js"><link rel="prefetch" href="/assets/js/101.9a3c581e.js"><link rel="prefetch" href="/assets/js/102.fa38c999.js"><link rel="prefetch" href="/assets/js/103.e3fec62c.js"><link rel="prefetch" href="/assets/js/104.af4487f1.js"><link rel="prefetch" href="/assets/js/105.1ad2ef13.js"><link rel="prefetch" href="/assets/js/106.faa67b0b.js"><link rel="prefetch" href="/assets/js/107.f2dd57a1.js"><link rel="prefetch" href="/assets/js/108.b6bf26bd.js"><link rel="prefetch" href="/assets/js/109.b48e8d9f.js"><link rel="prefetch" href="/assets/js/11.2866fd7e.js"><link rel="prefetch" href="/assets/js/110.a303fc4b.js"><link rel="prefetch" href="/assets/js/111.c41ed6c3.js"><link rel="prefetch" href="/assets/js/112.719090d1.js"><link rel="prefetch" href="/assets/js/113.9e678799.js"><link rel="prefetch" href="/assets/js/114.466a8f38.js"><link rel="prefetch" href="/assets/js/115.b05fb5aa.js"><link rel="prefetch" href="/assets/js/116.3dc9d606.js"><link rel="prefetch" href="/assets/js/117.90bfdcc4.js"><link rel="prefetch" href="/assets/js/118.59cfc231.js"><link rel="prefetch" href="/assets/js/119.01c9510b.js"><link rel="prefetch" href="/assets/js/12.b52866fb.js"><link rel="prefetch" href="/assets/js/120.0c0d8dda.js"><link rel="prefetch" href="/assets/js/121.9397b26a.js"><link rel="prefetch" href="/assets/js/122.797e94c5.js"><link rel="prefetch" href="/assets/js/123.7b55a573.js"><link rel="prefetch" href="/assets/js/124.e7bb827b.js"><link rel="prefetch" href="/assets/js/125.c4087fd0.js"><link rel="prefetch" href="/assets/js/126.dd5f2353.js"><link rel="prefetch" href="/assets/js/127.b9228fbe.js"><link rel="prefetch" href="/assets/js/128.f0db1709.js"><link rel="prefetch" href="/assets/js/129.fdcbf978.js"><link rel="prefetch" href="/assets/js/13.94401b7a.js"><link rel="prefetch" href="/assets/js/130.a939d195.js"><link rel="prefetch" href="/assets/js/131.d57d16bc.js"><link rel="prefetch" href="/assets/js/132.f8f628f6.js"><link rel="prefetch" href="/assets/js/133.e9fa5b63.js"><link rel="prefetch" href="/assets/js/134.78681c45.js"><link rel="prefetch" href="/assets/js/135.81b0b955.js"><link rel="prefetch" href="/assets/js/136.10532595.js"><link rel="prefetch" href="/assets/js/137.438cefa0.js"><link rel="prefetch" href="/assets/js/138.857c06c7.js"><link rel="prefetch" href="/assets/js/139.b11fc012.js"><link rel="prefetch" href="/assets/js/14.0e82c877.js"><link rel="prefetch" href="/assets/js/140.2922faa0.js"><link rel="prefetch" href="/assets/js/141.d2bc6449.js"><link rel="prefetch" href="/assets/js/142.6a4f8226.js"><link rel="prefetch" href="/assets/js/143.92440abe.js"><link rel="prefetch" href="/assets/js/144.005f8068.js"><link rel="prefetch" href="/assets/js/145.a04413a1.js"><link rel="prefetch" href="/assets/js/146.dd2ee52f.js"><link rel="prefetch" href="/assets/js/147.51fab298.js"><link rel="prefetch" href="/assets/js/148.81b39c06.js"><link rel="prefetch" href="/assets/js/149.ebab7526.js"><link rel="prefetch" href="/assets/js/15.bfa39557.js"><link rel="prefetch" href="/assets/js/150.daf76e81.js"><link rel="prefetch" href="/assets/js/151.a8a53689.js"><link rel="prefetch" href="/assets/js/152.fda9dfc1.js"><link rel="prefetch" href="/assets/js/153.8a34dcb1.js"><link rel="prefetch" href="/assets/js/154.ec1d9549.js"><link rel="prefetch" href="/assets/js/155.38b9ec37.js"><link rel="prefetch" href="/assets/js/156.5bcb7c08.js"><link rel="prefetch" href="/assets/js/157.1e307044.js"><link rel="prefetch" href="/assets/js/158.a9ee901b.js"><link rel="prefetch" href="/assets/js/159.9b6eb747.js"><link rel="prefetch" href="/assets/js/16.9d885216.js"><link rel="prefetch" href="/assets/js/160.3ae584e1.js"><link rel="prefetch" href="/assets/js/161.f37a53cd.js"><link rel="prefetch" href="/assets/js/162.6b371177.js"><link rel="prefetch" href="/assets/js/163.b30c58eb.js"><link rel="prefetch" href="/assets/js/164.4b28091c.js"><link rel="prefetch" href="/assets/js/165.76bffe98.js"><link rel="prefetch" href="/assets/js/166.a4abbe88.js"><link rel="prefetch" href="/assets/js/167.d04b6e6e.js"><link rel="prefetch" href="/assets/js/168.8d51d7d9.js"><link rel="prefetch" href="/assets/js/169.0a5eb0bc.js"><link rel="prefetch" href="/assets/js/17.ba19d36d.js"><link rel="prefetch" href="/assets/js/170.79f68470.js"><link rel="prefetch" href="/assets/js/171.cd0f10cc.js"><link rel="prefetch" href="/assets/js/172.518493ce.js"><link rel="prefetch" href="/assets/js/173.e8229c4d.js"><link rel="prefetch" href="/assets/js/174.6fbfa130.js"><link rel="prefetch" href="/assets/js/175.e0ce2304.js"><link rel="prefetch" href="/assets/js/176.9d1d9fea.js"><link rel="prefetch" href="/assets/js/177.c83500c0.js"><link rel="prefetch" href="/assets/js/178.dbcfae4f.js"><link rel="prefetch" href="/assets/js/179.1effa1e2.js"><link rel="prefetch" href="/assets/js/18.a2901cf4.js"><link rel="prefetch" href="/assets/js/180.43c05bc4.js"><link rel="prefetch" href="/assets/js/181.f52816fa.js"><link rel="prefetch" href="/assets/js/182.4e19af57.js"><link rel="prefetch" href="/assets/js/183.d4427034.js"><link rel="prefetch" href="/assets/js/184.c21dbfa0.js"><link rel="prefetch" href="/assets/js/185.e03a088a.js"><link rel="prefetch" href="/assets/js/186.7124ab04.js"><link rel="prefetch" href="/assets/js/187.78745718.js"><link rel="prefetch" href="/assets/js/188.45a1da1c.js"><link rel="prefetch" href="/assets/js/189.02b24b8e.js"><link rel="prefetch" href="/assets/js/19.4597f9a2.js"><link rel="prefetch" href="/assets/js/190.f277917e.js"><link rel="prefetch" href="/assets/js/191.defadabb.js"><link rel="prefetch" href="/assets/js/192.c9f3d038.js"><link rel="prefetch" href="/assets/js/193.348c260e.js"><link rel="prefetch" href="/assets/js/194.f2d6f04f.js"><link rel="prefetch" href="/assets/js/195.42665099.js"><link rel="prefetch" href="/assets/js/196.bf1e8775.js"><link rel="prefetch" href="/assets/js/197.4a4a7d1b.js"><link rel="prefetch" href="/assets/js/198.035c6a9f.js"><link rel="prefetch" href="/assets/js/199.4acb7c37.js"><link rel="prefetch" href="/assets/js/20.9c008052.js"><link rel="prefetch" href="/assets/js/200.80704d62.js"><link rel="prefetch" href="/assets/js/201.ad42732d.js"><link rel="prefetch" href="/assets/js/203.9547a3f3.js"><link rel="prefetch" href="/assets/js/204.e0bb1b43.js"><link rel="prefetch" href="/assets/js/205.17624b50.js"><link rel="prefetch" href="/assets/js/206.452e0af0.js"><link rel="prefetch" href="/assets/js/207.74bd8f02.js"><link rel="prefetch" href="/assets/js/208.adcbd4e7.js"><link rel="prefetch" href="/assets/js/209.d288a1ff.js"><link rel="prefetch" href="/assets/js/21.4236593f.js"><link rel="prefetch" href="/assets/js/210.7b4a2df1.js"><link rel="prefetch" href="/assets/js/211.9ea3b546.js"><link rel="prefetch" href="/assets/js/212.00bd6213.js"><link rel="prefetch" href="/assets/js/213.57599d6b.js"><link rel="prefetch" href="/assets/js/214.a648b4d6.js"><link rel="prefetch" href="/assets/js/215.07ddb469.js"><link rel="prefetch" href="/assets/js/216.d418e120.js"><link rel="prefetch" href="/assets/js/217.c41e8158.js"><link rel="prefetch" href="/assets/js/218.e664ccb4.js"><link rel="prefetch" href="/assets/js/219.00e5a892.js"><link rel="prefetch" href="/assets/js/22.f3337ef6.js"><link rel="prefetch" href="/assets/js/220.9f5b66e2.js"><link rel="prefetch" href="/assets/js/221.5e6a6668.js"><link rel="prefetch" href="/assets/js/222.a5989026.js"><link rel="prefetch" href="/assets/js/223.315a7414.js"><link rel="prefetch" href="/assets/js/224.d699eb73.js"><link rel="prefetch" href="/assets/js/225.68671980.js"><link rel="prefetch" href="/assets/js/226.a86d7e18.js"><link rel="prefetch" href="/assets/js/227.4f74e60d.js"><link rel="prefetch" href="/assets/js/228.69e3738c.js"><link rel="prefetch" href="/assets/js/229.cc86d20e.js"><link rel="prefetch" href="/assets/js/23.fb89e9d8.js"><link rel="prefetch" href="/assets/js/230.cecf4fd1.js"><link rel="prefetch" href="/assets/js/231.6d4140e7.js"><link rel="prefetch" href="/assets/js/232.557df262.js"><link rel="prefetch" href="/assets/js/233.a534d633.js"><link rel="prefetch" href="/assets/js/234.71c05b33.js"><link rel="prefetch" href="/assets/js/235.ba9a109c.js"><link rel="prefetch" href="/assets/js/236.2268c629.js"><link rel="prefetch" href="/assets/js/237.445a060f.js"><link rel="prefetch" href="/assets/js/238.c89aeff9.js"><link rel="prefetch" href="/assets/js/239.581c2181.js"><link rel="prefetch" href="/assets/js/24.8c13fac5.js"><link rel="prefetch" href="/assets/js/240.9e2f8875.js"><link rel="prefetch" href="/assets/js/241.2782e9ed.js"><link rel="prefetch" href="/assets/js/242.c06b9c04.js"><link rel="prefetch" href="/assets/js/243.4555b7a9.js"><link rel="prefetch" href="/assets/js/244.4ca0b62b.js"><link rel="prefetch" href="/assets/js/245.e2157b7c.js"><link rel="prefetch" href="/assets/js/246.e3fd6daa.js"><link rel="prefetch" href="/assets/js/247.2aa98fcb.js"><link rel="prefetch" href="/assets/js/248.0b007e3b.js"><link rel="prefetch" href="/assets/js/249.324afced.js"><link rel="prefetch" href="/assets/js/25.b32cadc2.js"><link rel="prefetch" href="/assets/js/250.8d0560e9.js"><link rel="prefetch" href="/assets/js/251.7b89d07f.js"><link rel="prefetch" href="/assets/js/252.8c569b7b.js"><link rel="prefetch" href="/assets/js/253.d4893421.js"><link rel="prefetch" href="/assets/js/254.d37b242a.js"><link rel="prefetch" href="/assets/js/255.e0fc5aa1.js"><link rel="prefetch" href="/assets/js/256.e73eaf0e.js"><link rel="prefetch" href="/assets/js/257.234387cc.js"><link rel="prefetch" href="/assets/js/258.c44a2fcb.js"><link rel="prefetch" href="/assets/js/259.ca308b57.js"><link rel="prefetch" href="/assets/js/26.a8b2cc1d.js"><link rel="prefetch" href="/assets/js/260.285ac534.js"><link rel="prefetch" href="/assets/js/261.8c67cf00.js"><link rel="prefetch" href="/assets/js/262.9457de7c.js"><link rel="prefetch" href="/assets/js/263.60228ee1.js"><link rel="prefetch" href="/assets/js/264.1338a92b.js"><link rel="prefetch" href="/assets/js/265.a356d789.js"><link rel="prefetch" href="/assets/js/266.9da390d9.js"><link rel="prefetch" href="/assets/js/267.03efbf98.js"><link rel="prefetch" href="/assets/js/268.7554bb79.js"><link rel="prefetch" href="/assets/js/269.7f9a0b36.js"><link rel="prefetch" href="/assets/js/27.58a5153a.js"><link rel="prefetch" href="/assets/js/270.1dd93a33.js"><link rel="prefetch" href="/assets/js/271.2f5d530e.js"><link rel="prefetch" href="/assets/js/272.0898a56f.js"><link rel="prefetch" href="/assets/js/273.54efcd80.js"><link rel="prefetch" href="/assets/js/274.55fb26b4.js"><link rel="prefetch" href="/assets/js/275.a69204ae.js"><link rel="prefetch" href="/assets/js/276.d5502f01.js"><link rel="prefetch" href="/assets/js/277.ad72dea1.js"><link rel="prefetch" href="/assets/js/278.ff0b5bbd.js"><link rel="prefetch" href="/assets/js/279.c3e712fa.js"><link rel="prefetch" href="/assets/js/28.3749c0f0.js"><link rel="prefetch" href="/assets/js/280.711acfba.js"><link rel="prefetch" href="/assets/js/281.c95b3340.js"><link rel="prefetch" href="/assets/js/282.ac7e8691.js"><link rel="prefetch" href="/assets/js/283.fabef513.js"><link rel="prefetch" href="/assets/js/284.86f73852.js"><link rel="prefetch" href="/assets/js/285.99c2096e.js"><link rel="prefetch" href="/assets/js/286.ea50cc8f.js"><link rel="prefetch" href="/assets/js/287.f15c00ac.js"><link rel="prefetch" href="/assets/js/288.7cf537e3.js"><link rel="prefetch" href="/assets/js/289.fe243ae2.js"><link rel="prefetch" href="/assets/js/29.83a6f23d.js"><link rel="prefetch" href="/assets/js/290.e67bb4df.js"><link rel="prefetch" href="/assets/js/291.6651d477.js"><link rel="prefetch" href="/assets/js/292.69a33b1e.js"><link rel="prefetch" href="/assets/js/293.8d6446cc.js"><link rel="prefetch" href="/assets/js/294.9a1ee4c6.js"><link rel="prefetch" href="/assets/js/295.c14904ff.js"><link rel="prefetch" href="/assets/js/296.02057891.js"><link rel="prefetch" href="/assets/js/297.3b3cac57.js"><link rel="prefetch" href="/assets/js/298.3b35a038.js"><link rel="prefetch" href="/assets/js/299.28fa1ec6.js"><link rel="prefetch" href="/assets/js/3.d363f7a0.js"><link rel="prefetch" href="/assets/js/30.2a0c0fca.js"><link rel="prefetch" href="/assets/js/300.416bf990.js"><link rel="prefetch" href="/assets/js/301.d6a6916d.js"><link rel="prefetch" href="/assets/js/302.a3eee46b.js"><link rel="prefetch" href="/assets/js/303.6d024f9e.js"><link rel="prefetch" href="/assets/js/304.fdaffc49.js"><link rel="prefetch" href="/assets/js/305.5b40d860.js"><link rel="prefetch" href="/assets/js/306.3cc9402a.js"><link rel="prefetch" href="/assets/js/307.e2acd89a.js"><link rel="prefetch" href="/assets/js/308.75930cd5.js"><link rel="prefetch" href="/assets/js/309.e3f5a4b6.js"><link rel="prefetch" href="/assets/js/31.070098ba.js"><link rel="prefetch" href="/assets/js/310.5afe1c3c.js"><link rel="prefetch" href="/assets/js/311.313b5a16.js"><link rel="prefetch" href="/assets/js/312.0b8226f2.js"><link rel="prefetch" href="/assets/js/313.60539d18.js"><link rel="prefetch" href="/assets/js/314.1d925fa8.js"><link rel="prefetch" href="/assets/js/315.464b4691.js"><link rel="prefetch" href="/assets/js/316.24fa733c.js"><link rel="prefetch" href="/assets/js/317.ad0976ef.js"><link rel="prefetch" href="/assets/js/318.c3f736aa.js"><link rel="prefetch" href="/assets/js/319.781775f1.js"><link rel="prefetch" href="/assets/js/32.b7e22bde.js"><link rel="prefetch" href="/assets/js/320.b599ccf7.js"><link rel="prefetch" href="/assets/js/321.e23cbab2.js"><link rel="prefetch" href="/assets/js/322.c84869c8.js"><link rel="prefetch" href="/assets/js/323.53eb02fc.js"><link rel="prefetch" href="/assets/js/324.e48d0729.js"><link rel="prefetch" href="/assets/js/325.57f4c93d.js"><link rel="prefetch" href="/assets/js/326.a19f11f7.js"><link rel="prefetch" href="/assets/js/327.a5cac4bf.js"><link rel="prefetch" href="/assets/js/328.72b842c3.js"><link rel="prefetch" href="/assets/js/329.439f04cd.js"><link rel="prefetch" href="/assets/js/33.13e7fa62.js"><link rel="prefetch" href="/assets/js/330.b2368b89.js"><link rel="prefetch" href="/assets/js/331.1a54c44d.js"><link rel="prefetch" href="/assets/js/332.e5cfa3af.js"><link rel="prefetch" href="/assets/js/333.97f6734c.js"><link rel="prefetch" href="/assets/js/334.817809b8.js"><link rel="prefetch" href="/assets/js/335.41d696fa.js"><link rel="prefetch" href="/assets/js/336.6d88b12b.js"><link rel="prefetch" href="/assets/js/337.8a877830.js"><link rel="prefetch" href="/assets/js/338.b1629db0.js"><link rel="prefetch" href="/assets/js/339.28595515.js"><link rel="prefetch" href="/assets/js/34.de3fb91b.js"><link rel="prefetch" href="/assets/js/340.f0520f1b.js"><link rel="prefetch" href="/assets/js/341.9170a7b4.js"><link rel="prefetch" href="/assets/js/342.826a2395.js"><link rel="prefetch" href="/assets/js/343.c5bbb22e.js"><link rel="prefetch" href="/assets/js/344.39437b7e.js"><link rel="prefetch" href="/assets/js/345.4ac85cb1.js"><link rel="prefetch" href="/assets/js/346.b7cac995.js"><link rel="prefetch" href="/assets/js/347.3b181b3e.js"><link rel="prefetch" href="/assets/js/348.7afab242.js"><link rel="prefetch" href="/assets/js/349.d5b1b493.js"><link rel="prefetch" href="/assets/js/35.bbceee9a.js"><link rel="prefetch" href="/assets/js/350.43faccab.js"><link rel="prefetch" href="/assets/js/351.2e503ac6.js"><link rel="prefetch" href="/assets/js/352.b4ea61d2.js"><link rel="prefetch" href="/assets/js/353.46be9fe7.js"><link rel="prefetch" href="/assets/js/354.7ecda5f2.js"><link rel="prefetch" href="/assets/js/355.ba585b66.js"><link rel="prefetch" href="/assets/js/356.1156e5ed.js"><link rel="prefetch" href="/assets/js/357.4631a1a5.js"><link rel="prefetch" href="/assets/js/358.d1712b45.js"><link rel="prefetch" href="/assets/js/359.bc68b3f3.js"><link rel="prefetch" href="/assets/js/36.95bde027.js"><link rel="prefetch" href="/assets/js/360.53733ecc.js"><link rel="prefetch" href="/assets/js/361.560d31f7.js"><link rel="prefetch" href="/assets/js/362.ae683f5c.js"><link rel="prefetch" href="/assets/js/363.c539d235.js"><link rel="prefetch" href="/assets/js/364.59e2b91b.js"><link rel="prefetch" href="/assets/js/365.400a6704.js"><link rel="prefetch" href="/assets/js/366.56543e5d.js"><link rel="prefetch" href="/assets/js/367.61457c03.js"><link rel="prefetch" href="/assets/js/368.43e030b0.js"><link rel="prefetch" href="/assets/js/369.d136627b.js"><link rel="prefetch" href="/assets/js/37.24fd0dc4.js"><link rel="prefetch" href="/assets/js/370.6fabf865.js"><link rel="prefetch" href="/assets/js/371.259e6966.js"><link rel="prefetch" href="/assets/js/372.c2068a2e.js"><link rel="prefetch" href="/assets/js/373.aa966bbd.js"><link rel="prefetch" href="/assets/js/374.fcf4ea77.js"><link rel="prefetch" href="/assets/js/375.3a25c41d.js"><link rel="prefetch" href="/assets/js/376.99f5186d.js"><link rel="prefetch" href="/assets/js/377.31380a56.js"><link rel="prefetch" href="/assets/js/378.49ec86ad.js"><link rel="prefetch" href="/assets/js/379.3d4f78b1.js"><link rel="prefetch" href="/assets/js/38.15ea1a26.js"><link rel="prefetch" href="/assets/js/380.d6a9def6.js"><link rel="prefetch" href="/assets/js/381.8ea7624d.js"><link rel="prefetch" href="/assets/js/382.dbbe4921.js"><link rel="prefetch" href="/assets/js/383.e9b99b21.js"><link rel="prefetch" href="/assets/js/384.9adcb98e.js"><link rel="prefetch" href="/assets/js/385.450940b2.js"><link rel="prefetch" href="/assets/js/386.cb6f3e50.js"><link rel="prefetch" href="/assets/js/387.0249780a.js"><link rel="prefetch" href="/assets/js/388.3bf13998.js"><link rel="prefetch" href="/assets/js/389.37774770.js"><link rel="prefetch" href="/assets/js/39.13290961.js"><link rel="prefetch" href="/assets/js/390.08ae0c08.js"><link rel="prefetch" href="/assets/js/391.930cae72.js"><link rel="prefetch" href="/assets/js/392.62e65c42.js"><link rel="prefetch" href="/assets/js/393.e372beb8.js"><link rel="prefetch" href="/assets/js/394.eb79c795.js"><link rel="prefetch" href="/assets/js/395.be00503d.js"><link rel="prefetch" href="/assets/js/396.64b175cb.js"><link rel="prefetch" href="/assets/js/397.5be7f8f2.js"><link rel="prefetch" href="/assets/js/398.0b8fac6e.js"><link rel="prefetch" href="/assets/js/399.a28d13f6.js"><link rel="prefetch" href="/assets/js/4.3088af78.js"><link rel="prefetch" href="/assets/js/40.38a0f047.js"><link rel="prefetch" href="/assets/js/400.3d742b56.js"><link rel="prefetch" href="/assets/js/401.b6fa4b70.js"><link rel="prefetch" href="/assets/js/402.710f3aff.js"><link rel="prefetch" href="/assets/js/403.f180d4ef.js"><link rel="prefetch" href="/assets/js/404.b4a2b6a4.js"><link rel="prefetch" href="/assets/js/405.98065449.js"><link rel="prefetch" href="/assets/js/406.714ad041.js"><link rel="prefetch" href="/assets/js/407.2772c1cb.js"><link rel="prefetch" href="/assets/js/408.cd7003d0.js"><link rel="prefetch" href="/assets/js/409.5769a3b2.js"><link rel="prefetch" href="/assets/js/41.3794ea77.js"><link rel="prefetch" href="/assets/js/410.b488a9eb.js"><link rel="prefetch" href="/assets/js/411.0f47e7ba.js"><link rel="prefetch" href="/assets/js/412.733482d3.js"><link rel="prefetch" href="/assets/js/413.303ed27a.js"><link rel="prefetch" href="/assets/js/414.5edae491.js"><link rel="prefetch" href="/assets/js/415.b02b3ceb.js"><link rel="prefetch" href="/assets/js/416.33aff0dc.js"><link rel="prefetch" href="/assets/js/417.c6450ed3.js"><link rel="prefetch" href="/assets/js/418.c1d2f7a8.js"><link rel="prefetch" href="/assets/js/419.781f17ef.js"><link rel="prefetch" href="/assets/js/42.b81a66f1.js"><link rel="prefetch" href="/assets/js/420.7cdfc1cb.js"><link rel="prefetch" href="/assets/js/421.05cdb910.js"><link rel="prefetch" href="/assets/js/422.7e0a515f.js"><link rel="prefetch" href="/assets/js/423.1b641ba5.js"><link rel="prefetch" href="/assets/js/424.a57bbcf2.js"><link rel="prefetch" href="/assets/js/425.92d79100.js"><link rel="prefetch" href="/assets/js/426.3259ff50.js"><link rel="prefetch" href="/assets/js/427.e252f42c.js"><link rel="prefetch" href="/assets/js/428.2a5d1cee.js"><link rel="prefetch" href="/assets/js/429.facceddc.js"><link rel="prefetch" href="/assets/js/43.d4eb4794.js"><link rel="prefetch" href="/assets/js/430.aa89fac7.js"><link rel="prefetch" href="/assets/js/431.064784f9.js"><link rel="prefetch" href="/assets/js/432.672f4123.js"><link rel="prefetch" href="/assets/js/433.607d57c0.js"><link rel="prefetch" href="/assets/js/434.7f192f69.js"><link rel="prefetch" href="/assets/js/435.2bf3bc33.js"><link rel="prefetch" href="/assets/js/436.25597889.js"><link rel="prefetch" href="/assets/js/437.fb8efad6.js"><link rel="prefetch" href="/assets/js/438.8619b669.js"><link rel="prefetch" href="/assets/js/439.2101c43d.js"><link rel="prefetch" href="/assets/js/44.33a5f01c.js"><link rel="prefetch" href="/assets/js/440.7a953668.js"><link rel="prefetch" href="/assets/js/441.35a50993.js"><link rel="prefetch" href="/assets/js/442.66750513.js"><link rel="prefetch" href="/assets/js/443.4beb7df3.js"><link rel="prefetch" href="/assets/js/444.9be4a5b9.js"><link rel="prefetch" href="/assets/js/445.43b337d0.js"><link rel="prefetch" href="/assets/js/446.ce564359.js"><link rel="prefetch" href="/assets/js/447.284a794f.js"><link rel="prefetch" href="/assets/js/448.601a1d84.js"><link rel="prefetch" href="/assets/js/449.6c020979.js"><link rel="prefetch" href="/assets/js/45.20dc10fd.js"><link rel="prefetch" href="/assets/js/450.16990cc4.js"><link rel="prefetch" href="/assets/js/451.dacdc330.js"><link rel="prefetch" href="/assets/js/452.97164781.js"><link rel="prefetch" href="/assets/js/453.90d7f78b.js"><link rel="prefetch" href="/assets/js/454.4eb1d94c.js"><link rel="prefetch" href="/assets/js/455.d407cbb9.js"><link rel="prefetch" href="/assets/js/456.24b17a87.js"><link rel="prefetch" href="/assets/js/457.3a1dc217.js"><link rel="prefetch" href="/assets/js/458.ec74db40.js"><link rel="prefetch" href="/assets/js/459.fdfbe725.js"><link rel="prefetch" href="/assets/js/46.ab887211.js"><link rel="prefetch" href="/assets/js/460.dff84093.js"><link rel="prefetch" href="/assets/js/461.47ed06bb.js"><link rel="prefetch" href="/assets/js/462.4554399a.js"><link rel="prefetch" href="/assets/js/463.cfdf9a17.js"><link rel="prefetch" href="/assets/js/464.c367274b.js"><link rel="prefetch" href="/assets/js/465.5ea1c44e.js"><link rel="prefetch" href="/assets/js/466.9f7b3846.js"><link rel="prefetch" href="/assets/js/467.0a318f4c.js"><link rel="prefetch" href="/assets/js/468.253dad00.js"><link rel="prefetch" href="/assets/js/469.5fd4aac7.js"><link rel="prefetch" href="/assets/js/47.161ec1b1.js"><link rel="prefetch" href="/assets/js/470.aea20eb0.js"><link rel="prefetch" href="/assets/js/471.82b42d86.js"><link rel="prefetch" href="/assets/js/472.00129a86.js"><link rel="prefetch" href="/assets/js/473.bcac4660.js"><link rel="prefetch" href="/assets/js/474.22d1df13.js"><link rel="prefetch" href="/assets/js/475.87076e0f.js"><link rel="prefetch" href="/assets/js/476.e7016bb8.js"><link rel="prefetch" href="/assets/js/477.1fb1bd33.js"><link rel="prefetch" href="/assets/js/478.9ad255ee.js"><link rel="prefetch" href="/assets/js/479.d067d219.js"><link rel="prefetch" href="/assets/js/48.5ec2bc97.js"><link rel="prefetch" href="/assets/js/480.a75c7328.js"><link rel="prefetch" href="/assets/js/481.471c13d7.js"><link rel="prefetch" href="/assets/js/482.b79afbd0.js"><link rel="prefetch" href="/assets/js/483.ff9497cf.js"><link rel="prefetch" href="/assets/js/484.40b8d4b5.js"><link rel="prefetch" href="/assets/js/485.da85d7bc.js"><link rel="prefetch" href="/assets/js/486.58c25c2c.js"><link rel="prefetch" href="/assets/js/487.c802b993.js"><link rel="prefetch" href="/assets/js/49.c47b83cb.js"><link rel="prefetch" href="/assets/js/5.464d5f32.js"><link rel="prefetch" href="/assets/js/50.6527351d.js"><link rel="prefetch" href="/assets/js/51.61dd061a.js"><link rel="prefetch" href="/assets/js/52.a3442d36.js"><link rel="prefetch" href="/assets/js/53.550a6017.js"><link rel="prefetch" href="/assets/js/54.76beb39e.js"><link rel="prefetch" href="/assets/js/55.b7948a78.js"><link rel="prefetch" href="/assets/js/56.e55aadf9.js"><link rel="prefetch" href="/assets/js/57.66b632c1.js"><link rel="prefetch" href="/assets/js/58.bd8a42ec.js"><link rel="prefetch" href="/assets/js/59.ca6dc059.js"><link rel="prefetch" href="/assets/js/6.0ceb5c68.js"><link rel="prefetch" href="/assets/js/60.4f696a43.js"><link rel="prefetch" href="/assets/js/61.e03d9700.js"><link rel="prefetch" href="/assets/js/62.2e3e5eeb.js"><link rel="prefetch" href="/assets/js/63.955f4175.js"><link rel="prefetch" href="/assets/js/64.7ad7cb99.js"><link rel="prefetch" href="/assets/js/65.3131c091.js"><link rel="prefetch" href="/assets/js/66.6d5d2799.js"><link rel="prefetch" href="/assets/js/67.27324a23.js"><link rel="prefetch" href="/assets/js/68.b986c565.js"><link rel="prefetch" href="/assets/js/69.80dd843f.js"><link rel="prefetch" href="/assets/js/7.3adc1d3f.js"><link rel="prefetch" href="/assets/js/70.9c7ec326.js"><link rel="prefetch" href="/assets/js/71.411ff021.js"><link rel="prefetch" href="/assets/js/72.35b66e8f.js"><link rel="prefetch" href="/assets/js/73.e7b695c0.js"><link rel="prefetch" href="/assets/js/74.30af475a.js"><link rel="prefetch" href="/assets/js/75.dad67a04.js"><link rel="prefetch" href="/assets/js/76.b5642785.js"><link rel="prefetch" href="/assets/js/77.1b3a424e.js"><link rel="prefetch" href="/assets/js/78.db822987.js"><link rel="prefetch" href="/assets/js/79.09a13430.js"><link rel="prefetch" href="/assets/js/8.80d0563a.js"><link rel="prefetch" href="/assets/js/80.8158198c.js"><link rel="prefetch" href="/assets/js/81.b87d6c57.js"><link rel="prefetch" href="/assets/js/82.bfe4e390.js"><link rel="prefetch" href="/assets/js/83.3cc46ac1.js"><link rel="prefetch" href="/assets/js/84.aab500df.js"><link rel="prefetch" href="/assets/js/85.484f1869.js"><link rel="prefetch" href="/assets/js/86.da7ae4ff.js"><link rel="prefetch" href="/assets/js/87.300ac6c3.js"><link rel="prefetch" href="/assets/js/88.9de316df.js"><link rel="prefetch" href="/assets/js/89.cbb0f7d9.js"><link rel="prefetch" href="/assets/js/9.902c1830.js"><link rel="prefetch" href="/assets/js/90.96ae648f.js"><link rel="prefetch" href="/assets/js/91.409de486.js"><link rel="prefetch" href="/assets/js/92.6de09e33.js"><link rel="prefetch" href="/assets/js/93.5ec848ed.js"><link rel="prefetch" href="/assets/js/94.f3fc630d.js"><link rel="prefetch" href="/assets/js/95.395abbd4.js"><link rel="prefetch" href="/assets/js/96.be9a8b79.js"><link rel="prefetch" href="/assets/js/97.7df4cc5b.js"><link rel="prefetch" href="/assets/js/98.4c3e583d.js"><link rel="prefetch" href="/assets/js/99.f452b1ba.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.008dd71f.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="yyz notes" class="logo"> <span class="site-name can-hide">yyz notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="系统功能设计" class="dropdown-title"><a href="/systems/" class="link-title">系统功能设计</a> <span class="title" style="display:none;">系统功能设计</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/dfadd6/" class="nav-link">RBAC权限设计</a></li><li class="dropdown-item"><!----> <a href="/pages/43bca1/" class="nav-link">架构图标设计</a></li><li class="dropdown-item"><!----> <a href="/pages/1d4369/" class="nav-link">账号体系</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="python" class="dropdown-title"><a href="/python/" class="link-title">python</a> <span class="title" style="display:none;">python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/218041/" class="nav-link">python基础</a></li><li class="dropdown-item"><!----> <a href="/pages/5b5296/" class="nav-link">python高级</a></li><li class="dropdown-item"><!----> <a href="/pages/265f6b/" class="nav-link">python模块</a></li><li class="dropdown-item"><!----> <a href="/pages/a544d5/" class="nav-link">python设计模式</a></li><li class="dropdown-item"><!----> <a href="/pages/fae1d5/" class="nav-link">python数据结构与算法</a></li><li class="dropdown-item"><!----> <a href="/pages/729c08/" class="nav-link">django</a></li><li class="dropdown-item"><!----> <a href="/pages/1f1185/" class="nav-link">django-DRF</a></li><li class="dropdown-item"><!----> <a href="/pages/6400c2/" class="nav-link">flask</a></li><li class="dropdown-item"><!----> <a href="/pages/3a3e9f/" class="nav-link">直接设计开源pip包</a></li><li class="dropdown-item"><!----> <a href="/pages/39e704/" class="nav-link">直接设计开源项目</a></li><li class="dropdown-item"><!----> <a href="/pages/d4123d/" class="nav-link">python示例题/脚本</a></li><li class="dropdown-item"><!----> <a href="/pages/934fa5/" class="nav-link">python面试题</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="golang" class="dropdown-title"><a href="/golang/" class="link-title">golang</a> <span class="title" style="display:none;">golang</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a36e1/" class="nav-link">golang基础</a></li><li class="dropdown-item"><!----> <a href="/pages/bc37bd/" class="nav-link">golang高级</a></li><li class="dropdown-item"><!----> <a href="/pages/fdbbda/" class="nav-link">golang常用组件</a></li><li class="dropdown-item"><!----> <a href="/pages/c60067/" class="nav-link">gin框架</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/b55ef2/" class="nav-link">es6</a></li><li class="dropdown-item"><!----> <a href="/pages/490340/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/pages/be3741/" class="nav-link">react</a></li><li class="dropdown-item"><!----> <a href="/pages/e0f7a6/" class="nav-link">vue</a></li><li class="dropdown-item"><!----> <a href="/pages/183a5e/" class="nav-link">TypeScript</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据存储" class="dropdown-title"><a href="/datas/" class="link-title">数据存储</a> <span class="title" style="display:none;">数据存储</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/14835d/" class="nav-link">mysql</a></li><li class="dropdown-item"><!----> <a href="/pages/d47a6a/" class="nav-link">redis</a></li><li class="dropdown-item"><!----> <a href="/pages/4d3a23/" class="nav-link">minio</a></li><li class="dropdown-item"><!----> <a href="/pages/b66577/" class="nav-link">elasticsearch</a></li><li class="dropdown-item"><!----> <a href="/pages/687094/" class="nav-link">mongodb</a></li><li class="dropdown-item"><!----> <a href="/pages/16380c/" class="nav-link">消息队列</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="测试" class="dropdown-title"><a href="/tests/" class="link-title">测试</a> <span class="title" style="display:none;">测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/dfadd6/" class="nav-link">自动化测试</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维部署" class="dropdown-title"><a href="/deployments/" class="link-title">运维部署</a> <span class="title" style="display:none;">运维部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>操作系统</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/d5b367/" class="nav-link">linux</a></li><li class="dropdown-subitem"><a href="/pages/dcbaac/" class="nav-link">windows</a></li></ul></li><li class="dropdown-item"><!----> <a href="/pages/25bfa3/" class="nav-link">nginx</a></li><li class="dropdown-item"><!----> <a href="/pages/71bb52/" class="nav-link">docker</a></li><li class="dropdown-item"><!----> <a href="/pages/829e67/" class="nav-link">k8s</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><a href="/tools/" class="link-title">工具</a> <span class="title" style="display:none;">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/4dd1e5/" class="nav-link">git</a></li><li class="dropdown-item"><!----> <a href="/pages/4dd1e5/" class="nav-link">ldap</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/mores/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/f2a556/" class="nav-link">学习</a></li><li class="dropdown-item"><!----> <a href="/pages/aea6571b7a8bae86/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/pages/2d615df9a36a98ed/" class="nav-link">心情杂货</a></li><li class="dropdown-item"><!----> <a href="/pages/baaa02/" class="nav-link">实用技巧</a></li><li class="dropdown-item"><!----> <a href="/friends/" class="nav-link">友情链接</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/YiZhang-You" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="/img/logo.png"> <div class="blogger-info"><h3>益章</h3> <span>可乐鸡翅</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="系统功能设计" class="dropdown-title"><a href="/systems/" class="link-title">系统功能设计</a> <span class="title" style="display:none;">系统功能设计</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/dfadd6/" class="nav-link">RBAC权限设计</a></li><li class="dropdown-item"><!----> <a href="/pages/43bca1/" class="nav-link">架构图标设计</a></li><li class="dropdown-item"><!----> <a href="/pages/1d4369/" class="nav-link">账号体系</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="python" class="dropdown-title"><a href="/python/" class="link-title">python</a> <span class="title" style="display:none;">python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/218041/" class="nav-link">python基础</a></li><li class="dropdown-item"><!----> <a href="/pages/5b5296/" class="nav-link">python高级</a></li><li class="dropdown-item"><!----> <a href="/pages/265f6b/" class="nav-link">python模块</a></li><li class="dropdown-item"><!----> <a href="/pages/a544d5/" class="nav-link">python设计模式</a></li><li class="dropdown-item"><!----> <a href="/pages/fae1d5/" class="nav-link">python数据结构与算法</a></li><li class="dropdown-item"><!----> <a href="/pages/729c08/" class="nav-link">django</a></li><li class="dropdown-item"><!----> <a href="/pages/1f1185/" class="nav-link">django-DRF</a></li><li class="dropdown-item"><!----> <a href="/pages/6400c2/" class="nav-link">flask</a></li><li class="dropdown-item"><!----> <a href="/pages/3a3e9f/" class="nav-link">直接设计开源pip包</a></li><li class="dropdown-item"><!----> <a href="/pages/39e704/" class="nav-link">直接设计开源项目</a></li><li class="dropdown-item"><!----> <a href="/pages/d4123d/" class="nav-link">python示例题/脚本</a></li><li class="dropdown-item"><!----> <a href="/pages/934fa5/" class="nav-link">python面试题</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="golang" class="dropdown-title"><a href="/golang/" class="link-title">golang</a> <span class="title" style="display:none;">golang</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/9a36e1/" class="nav-link">golang基础</a></li><li class="dropdown-item"><!----> <a href="/pages/bc37bd/" class="nav-link">golang高级</a></li><li class="dropdown-item"><!----> <a href="/pages/fdbbda/" class="nav-link">golang常用组件</a></li><li class="dropdown-item"><!----> <a href="/pages/c60067/" class="nav-link">gin框架</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/b55ef2/" class="nav-link">es6</a></li><li class="dropdown-item"><!----> <a href="/pages/490340/" class="nav-link">javascript</a></li><li class="dropdown-item"><!----> <a href="/pages/be3741/" class="nav-link">react</a></li><li class="dropdown-item"><!----> <a href="/pages/e0f7a6/" class="nav-link">vue</a></li><li class="dropdown-item"><!----> <a href="/pages/183a5e/" class="nav-link">TypeScript</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="数据存储" class="dropdown-title"><a href="/datas/" class="link-title">数据存储</a> <span class="title" style="display:none;">数据存储</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/14835d/" class="nav-link">mysql</a></li><li class="dropdown-item"><!----> <a href="/pages/d47a6a/" class="nav-link">redis</a></li><li class="dropdown-item"><!----> <a href="/pages/4d3a23/" class="nav-link">minio</a></li><li class="dropdown-item"><!----> <a href="/pages/b66577/" class="nav-link">elasticsearch</a></li><li class="dropdown-item"><!----> <a href="/pages/687094/" class="nav-link">mongodb</a></li><li class="dropdown-item"><!----> <a href="/pages/16380c/" class="nav-link">消息队列</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="测试" class="dropdown-title"><a href="/tests/" class="link-title">测试</a> <span class="title" style="display:none;">测试</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/dfadd6/" class="nav-link">自动化测试</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维部署" class="dropdown-title"><a href="/deployments/" class="link-title">运维部署</a> <span class="title" style="display:none;">运维部署</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>操作系统</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/d5b367/" class="nav-link">linux</a></li><li class="dropdown-subitem"><a href="/pages/dcbaac/" class="nav-link">windows</a></li></ul></li><li class="dropdown-item"><!----> <a href="/pages/25bfa3/" class="nav-link">nginx</a></li><li class="dropdown-item"><!----> <a href="/pages/71bb52/" class="nav-link">docker</a></li><li class="dropdown-item"><!----> <a href="/pages/829e67/" class="nav-link">k8s</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="工具" class="dropdown-title"><a href="/tools/" class="link-title">工具</a> <span class="title" style="display:none;">工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/4dd1e5/" class="nav-link">git</a></li><li class="dropdown-item"><!----> <a href="/pages/4dd1e5/" class="nav-link">ldap</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><a href="/mores/" class="link-title">更多</a> <span class="title" style="display:none;">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/f2a556/" class="nav-link">学习</a></li><li class="dropdown-item"><!----> <a href="/pages/aea6571b7a8bae86/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/pages/2d615df9a36a98ed/" class="nav-link">心情杂货</a></li><li class="dropdown-item"><!----> <a href="/pages/baaa02/" class="nav-link">实用技巧</a></li><li class="dropdown-item"><!----> <a href="/friends/" class="nav-link">友情链接</a></li></ul></div></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><div class="nav-item"><a href="/pages/beb6c0bd8a66cea6/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/YiZhang-You" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>python基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>python高级</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>python模块</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>python设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>python数据结构与算法</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>django</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>django-DRF</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>flask</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>flask基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/6400c2/" class="sidebar-link">flask基础(1)</a></li><li><a href="/pages/189596/" aria-current="page" class="active sidebar-link">flask基础(2)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/189596/#day03" class="sidebar-link">day03</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/189596/#内容回顾" class="sidebar-link">内容回顾</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#今日内容" class="sidebar-link">今日内容</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1、上下文管理" class="sidebar-link">1、上下文管理</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1-1-call" class="sidebar-link">1.1 `__call__`</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1-2-getitem" class="sidebar-link">1.2 `__getitem__`</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1-3-getattr" class="sidebar-link">1.3 `__getattr__`</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1-4-偏函数" class="sidebar-link">1.4 偏函数</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1-5-threading-local" class="sidebar-link">1.5 threading Local()</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#a-使用local方法" class="sidebar-link">a. 使用local方法</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#b-自定义实现local-重点看一下" class="sidebar-link">b.!自定义实现Local(),重点看一下</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#c-仿照flask用栈来实现自定义threading-local的存取" class="sidebar-link">c. 仿照flask用栈来实现自定义threading.local的存取</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1-6-flask的上下文管理机制" class="sidebar-link">1.6 flask的上下文管理机制</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1-请求上下文管理" class="sidebar-link">1. 请求上下文管理</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#a-请求进来时" class="sidebar-link">a. 请求进来时</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#b-执行视图函数时" class="sidebar-link">b. 执行视图函数时</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#c-请求结束前" class="sidebar-link">c. 请求结束前</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_2-应用上下文" class="sidebar-link">2 应用上下文</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#a-应用g" class="sidebar-link">a.应用g</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/189596/#day04" class="sidebar-link">day04</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/189596/#内容回顾-2" class="sidebar-link">内容回顾</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#今日内容-2" class="sidebar-link">今日内容</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1、flask-session" class="sidebar-link">1、flask_session</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_2、数据库连接池" class="sidebar-link">2、数据库连接池</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_3、wtforms" class="sidebar-link">3、wtforms</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/189596/#day05" class="sidebar-link">day05</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/189596/#内容回顾-3" class="sidebar-link">内容回顾</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#今日内容-3" class="sidebar-link">今日内容</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1、面向对象相关" class="sidebar-link">1、面向对象相关</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1-1-mro" class="sidebar-link">1.1 `__mro__`</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1-2-dict" class="sidebar-link">1.2 `__dict__`</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1-3-metaclass" class="sidebar-link">1.3 metaclass</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1-创建类的二种方式" class="sidebar-link">1. 创建类的二种方式</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_2-创建自定义的type类" class="sidebar-link">2.创建自定义的type类</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/189596/#dayo6" class="sidebar-link">dayo6</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/189596/#内容回顾-4" class="sidebar-link">内容回顾</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#今日内容-4" class="sidebar-link">今日内容</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_1、flask-script" class="sidebar-link">1、flask_script</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_2、flask-sqlalchemy" class="sidebar-link">2、flask-sqlalchemy</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_3、-sqlalchemy两种创建session的方式" class="sidebar-link">3、 SQLAlchemy两种创建session的方式</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_4、flask-migrate" class="sidebar-link">4、flask-migrate</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_5、多app应用-url进行处理和分发" class="sidebar-link">5、多app应用（url进行处理和分发）</a></li><li class="sidebar-sub-header level3"><a href="/pages/189596/#_6、信号-blinker" class="sidebar-link">6、信号：blinker</a></li></ul></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>flask项目</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>自己设计开源pip包</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>自己设计开源项目</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>python小示例</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>python面试题</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/python/#python" data-v-06225672>python</a></li><li data-v-06225672><a href="/python/#flask" data-v-06225672>flask</a></li><li data-v-06225672><a href="/python/#flask基础" data-v-06225672>flask基础</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="https://github.com/YiZhang-You" target="_blank" title="作者" class="beLink" data-v-06225672>YiZhang-You</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2023-05-20</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABKFJREFUSA3tVl1oFVcQnrMbrak3QUgkya1akpJYcrUtIqW1JvFBE9LiQ5v6JmJpolbMg32rVrhgoYK0QiMY6i9Y6EMaW5D+xFJaTYItIuK2Kr3+BJNwkxBj05sQY3b3nM6cs2dv9t7NT/vQJw/sndk5M/PNzJkzewGerP+pAmy+ON8lLzUJgA8ZYxYIYZmGYRnctDaWvJJAmTtfP1pvXsBCCPP8QFcCaRkZYACgDZFO4stNIcBCajEOlmmC9XpJ9bAGCaPaPmzPl32dvLSVu3BWCTQs0XQQ6g0DYgwLIoAZbBCdW/i+781o1VVlm/410mw4h06Y7bIPHNyWDyL4FHkX03Q8SrzNhZTZriieckWt7cL6MM85YcLpsi/7O9/iXFT6MswI0DmmpkSaJ0qLxFIm3+i1THHB3zmBH3PYx9CcykcLOeQVVa7QtdxTgQgEleX2AjHYfwA+2ddV77ruGoJUbhGDI09YSNXyMpUt5ylOzxgbUmtOp7NmbNt8v3arjTBfYELmLUV+M+nSawNNAUqpT3ClJWg5I3BLT+cGW/DXNGCa6tx1aakCGEigArTn4TDIPdrXXYKCZNrHLMCOEPvHBlLQ99s9eHB7EB6NTki73CVPQ2F5MSx/uRQixfmq7rK0wYD8w8E905bnPDfwoWs/rfv93NWN/ZfvwsLIU7A09gxECyISeGJkHAau98L97tuw7NXnoPyNF8FcYGLGKsOs0mN3OEyec9esGW/ZEl945dTP34wlR2FZVQWU1q0Cw8Tr7p+hgLLNL0FPxx/Q35mA8aEUrH6nCgwEl0tn7wUiZYJnNRh6DK4UH/k0lfyrsBKdPVv/AriGIQcEDQZ65LBAGe2Rzui9Ybjz7XUppz1/uKBbyVPGkN3ZAeC6hr0x7Nr38N5+EqkoOm17xpoqR9ohQF55ERSvr4Dkr3chNfC3DMzGJlNBElW8w9nsGQvhNGIzDkXzCg8cLK951xHsFBlTJspJNi3ZFIMF2AeDV3q8DNOB+YHi6QTrChDIWDBRi5U5f+ZMfJLu3ccrqxtdxk4SKH336LFxSmkqefwU5T8fhdSdQf9IVKD6aNiwI/hnmcAZ91isYMJIaCUCx9W098+LgruikeTqzqqxKPUwqJyCPJiyemVVZBOijDGjD38Os0jOiSPL1z3SPjXNANbiNPXAdzTfukjjuknNBbyz3nwgTd3AVFqUJ5hpHlq9MveLnWwttUfoygBmvVjuikxND3znrhsELnZk7k+OjIGxeNEkomyLVta0xxn+HZhjBc4YZ/AFjHjz9u3xRZl2BN4aq9nFwWh16IrQ1aHHEd3j1+4/dB9OtH4e29A2H1DyHQRmOSfQZ1Fy7MHBTGB6J/Djq6p3OxyO2cB+4Car7v/o3GXgfAkj23+x9ID1Teoamo/SXcbvSf2PX7Vc8DdCmE1vN9di+32P9/5YR3vLnhCVGUWBjEkr3yh4H8v9CzmsbdhzOKzsJKM90iFdaTMjRPhGVsakRvOaRidljo6H6G7j+ctrJpsP+4COhDIl0La2+FS4+5mlocBaXY5QnGZysIBYoeSsl5qQzrSj/cgNrfuEzlWBfwA+EjrZyWUvpAAAAABJRU5ErkJggg==">flask基础(2)<!----></h1> <!----> <div class="theme-vdoing-content content__default"><h2 id="day03"><a href="#day03" class="header-anchor">#</a> <strong>day03</strong></h2> <h3 id="内容回顾"><a href="#内容回顾" class="header-anchor">#</a> <strong>内容回顾</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code># 1. 面向对象：特殊方法
+   obj['x'] = 123
+   obj.x = 123
+   obj + 123
+# 2. functools
+   def func(a1,a2,a3):
+      return a1 + a2 + a3
+
+   v1 = func(1,2,3)
+
+   new_func = functools.partial(func,111,2)  # partial帮助我们传递参数原来func需要传递三个参数，现在只用传递一个 a3=3
+   new_func(3)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="今日内容"><a href="#今日内容" class="header-anchor">#</a> <strong>今日内容</strong></h3> <h3 id="_1、上下文管理"><a href="#_1、上下文管理" class="header-anchor">#</a> <strong>1、上下文管理</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>我看的这个：&lt;https://www.cnblogs.com/zhaopanpan/articles/9457343.html&gt;
+&lt;https://cloud.tencent.com/developer/article/1794125&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>django、tornado是通过传参的形式传递数据，而flask是通过其特有的上下文管理机制来管理数据的。</strong></p> <p><strong>在flask中，上下文管理机制分为两个大的部分：请求上下文和应用上下文。</strong></p> <p>在了解flask上下文管理机制之前，先来一波必知必会的知识点</p> <h3 id="_1-1-call"><a href="#_1-1-call" class="header-anchor">#</a> <strong>1.1 <code>__call__</code></strong></h3> <p>创建对象的</p> <p>这个方法相信大家并不陌生，在单例模式中，我们可能用到过，除此之外，还想就没有在什么特殊场景中用到了。我们往往忽视了它一个很特殊的用法：对象object+()或者类Foo()+()这种很特殊的用法。在Flask上下文管理中，入口就是使用了这种方式。</p> <h3 id="_1-2-getitem"><a href="#_1-2-getitem" class="header-anchor">#</a> <strong>1.2 <code>__getitem__</code></strong></h3> <p>使用这个系列的方法时，我们最大的印象就是调用对象的属性可以像字典取值一样使用中括号[]。使用中括号对对象中的属性进行取值、赋值或者删除时，会自动触发对应的<strong>getitem</strong>、<strong>setitem</strong>、<strong>delitem</strong>方法。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Foo(object):
+
+    def __init__(self):
+        self.name = &quot;boo&quot;
+
+    def __getitem__(self, item):
+        print(&quot;调用__getitem__了&quot;, item)
+        if item in self.__dict__:
+            return self.__dict__[item]
+
+    def __setitem__(self, key, value):
+        print(&quot;调用__setitem__方法了&quot;, key, value)
+        self.__dict__[key] = value
+
+    def __delitem__(self, key):
+        print(&quot;调用__delitem__&quot;, key)
+        del self.__dict__[key]
+
+foo = Foo()
+ret = foo[&quot;name&quot;]
+# print(ret)     # 输出     调用__getitem__了      boo
+foo[&quot;age&quot;] = 18
+# print(foo[&quot;age&quot;])   # 输出   调用__setitem__方法了   调用__getitem__了    18
+del foo[&quot;age&quot;]  # 输出  调用__delitem__
+
+&quot;&quot;&quot;
+在类中实现了 __getitem__ 方法可以使用对象[属性] 拿到对应的值，
+在类中实现了 __setitem__ 方法可以直接对象[属性] 添加值
+在类中实现了 __delitem__ 方法  foo[&quot;age&quot;]
+&quot;&quot;&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><h3 id="_1-3-getattr"><a href="#_1-3-getattr" class="header-anchor">#</a> <strong>1.3 <code>__getattr__</code></strong></h3> <p>使用对象取值、赋值或者删除时，会默认的调用对应的<strong>getattr</strong>、<strong>setattr</strong>、<strong>delattr</strong>方法。</p> <p>对象取值时，取值的顺序为：先从<strong>getattribute</strong>中找，第二步从对象的属性中找，第三步从当前类中找，第四步从父类中找，第五步从<strong>getattr</strong>中找，如果没有，直接抛出异常。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Foo(object):
+
+    def __init__(self):
+        self.name = &quot;boo&quot;
+
+    def __getattr__(self, item):
+        print(&quot;调用__getattr__了&quot;, item)
+
+    def __setattr__(self, key, value):
+        print(&quot;调用__setattr__方法了&quot;, key, value)
+
+    def __delattr__(self, item):
+        print(&quot;调用__delattr__&quot;, item)
+
+foo = Foo()
+ret = foo.xxx  # 输出     调用__getattr__了
+foo.age = 18  # 调用__setattr__方法了
+del foo.age  # 输出  调用__delattr__
+&quot;&quot;&quot;
+调用__setattr__方法了 name boo
+调用__getattr__了 xxx
+调用__setattr__方法了 age 18
+调用__delattr__ age
+&quot;&quot;&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="_1-4-偏函数"><a href="#_1-4-偏函数" class="header-anchor">#</a> <strong>1.4 偏函数</strong></h3> <p>python中有一个小工具包functools，这个包中包含了几个在很有用的小功能，比如：</p> <ul><li>wraps：在使用装饰器时，使用这个方法可以保护函数的元信息。</li> <li>reduce：一个合并序列项为一个单一值的小方法。</li> <li>还有一个就是偏函数： partial</li></ul> <p>一句话来总结partial的作用，固定函数中的一些参数，返回一个新的函数，方便调用</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>from functools import partial
+
+class Foo(object):
+
+    def __init__(self):
+        self.request = &quot;request&quot;
+        self.session = &quot;session&quot;
+
+foo = Foo()
+
+def func(args):
+    return getattr(foo, args)
+
+re_func = partial(func, 'request')  # 帮助源函数传递值
+se_func = partial(func, 'session')
+
+print(re_func())
+print(se_func())
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h3 id="_1-5-threading-local"><a href="#_1-5-threading-local" class="header-anchor">#</a> <strong>1.5 threading Local()</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>详细资料：&lt;http://c.biancheng.net/view/2628.html&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>在多线程中，同一个进程中的多个线程是共享一个内存地址的，多个线程操作数据时，就会造成数据的不安全，所以我们就要加锁。但是，对于一些变量，如果仅仅只在本线程中使用，怎么办？</p> <p>方法一，可以通过全局的字典，key为当前线程的线程ID，value为具体的值。(自定义方法)</p> <p>方法二，使用threading.local方法</p> <p><strong>作用：为每一个线程开辟一块空间进行数据存储，空间和空间是互相隔离的</strong></p> <h3 id="a-使用local方法"><a href="#a-使用local方法" class="header-anchor">#</a> <strong>a. 使用local方法</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>import time
+import threading
+
+local = threading.local()
+
+def func(n):
+    local.val = n
+    time.sleep(5)
+    print(n)
+
+for i in range(10):
+    t = threading.Thread(target=func,args=(i,))
+    t.start()
+
+# 结果输出    0--9
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="b-自定义实现local-重点看一下"><a href="#b-自定义实现local-重点看一下" class="header-anchor">#</a> <strong>b.!自定义实现Local(),重点看一下</strong></h3> <p><strong>定制粒度更细的</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>try:
+    from greenlet import getcurrent as get_ident
+except Exception as e:
+    from threading import get_ident
+from threading import Thread
+import time
+
+class Local(object):
+
+    def __init__(self):
+        # self.storage = {}
+        # 为什么不能直接这样，因为当进来Local对象中的self.storage是调用内部的__setattr__方法创建的，但是这里被我们重写了，所以不会去创建实例变量
+        # 我们就要去调用父类的__setattr__方法进行创建
+        object.__setattr__(self, 'storage', {})  # self.storage = object.__setattr__(self, 'storage', {})
+
+    def __setattr__(self, k, v):
+        ident = get_ident()  # 得到线程或者协程的id
+        if ident in self.storage:
+            self.storage[ident][k] = v
+        else:
+            self.storage[ident] = {k: v}
+
+    def __getattr__(self, k):
+        ident = get_ident()
+        return self.storage[ident][k]
+
+obj = Local()
+
+def task(arg):
+    obj.val = arg  # 在类中实现了__setattr__（k,v） 就可以通过 对象.key =值 直接存
+    # print(obj.storage)
+    # obj.xxx = arg
+    time.sleep(2)
+    print(obj.val)  # 在类中实现了__getattr__（k,） 就可以通过 对象.key 直接获取字典的值
+
+for i in range(10):
+    t = Thread(target=task, args=(i,))
+    t.start()
+
+&quot;&quot;&quot;
+1.可以通过协程的方式或者线程的方式创建
+{24244: {'val': 0}}
+{24244: {'val': 0}, 19356: {'val': 1}}
+&quot;&quot;&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br></div></div><h3 id="c-仿照flask用栈来实现自定义threading-local的存取"><a href="#c-仿照flask用栈来实现自定义threading-local的存取" class="header-anchor">#</a> <strong>c. 仿照flask用栈来实现自定义threading.local的存取</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>from greenlet import getcurrent
+
+class Local(object):
+
+    def __init__(self):
+        object.__setattr__(self, &quot;_storage&quot;, {})
+
+    def __setattr__(self, key, value):
+
+        # ident = threading.get_ident()
+        ident = getcurrent()  # 得到协程的id 定制粒度更细的
+        if ident in self._storage:
+            self._storage[ident][key] = value
+        else:
+            self._storage[ident] = {key: value}
+
+    def __getattr__(self, item):
+        # ident = threading.get_ident()
+        ident = getcurrent()
+        return self._storage[ident][item]
+
+class LocalStack(object):
+
+    def __init__(self):
+        self.local = Local()
+
+    def push(self, item):
+        self.local.stack = []
+        self.local.stack.append(item)
+
+    def pop(self):
+        return self.local.stack.pop()
+
+    def top(self):
+        return self.local.stack[-1]
+
+_local_stack = LocalStack()
+_local_stack.push(55)
+_local_stack.push(32)
+_local_stack.push(21)
+print(_local_stack.top())  # 取栈顶元素
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><h3 id="_1-6-flask的上下文管理机制"><a href="#_1-6-flask的上下文管理机制" class="header-anchor">#</a> <strong>1.6 flask的上下文管理机制</strong></h3> <p>在flask中，上下文管理机制分为两个大的部分：<strong>请求上下文</strong>和<strong>应用上下文</strong>。</p> <ul><li>请求上下文：request/session</li> <li>应用上下文：app/g</li></ul> <p>从以下三个大的方面分别探讨flask的两大上下文管理机制。</p> <ol><li>方面一：请求进来时</li> <li>方面二：视图函数</li> <li>方面三：请求结束前</li></ol> <h3 id="_1-请求上下文管理"><a href="#_1-请求上下文管理" class="header-anchor">#</a> <strong>1. 请求上下文管理</strong></h3> <p>先来一个最简单的flask版的Hello World</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return &quot;Hello World&quot;
+
+if __name__ == '__main__':
+    app.run()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>启动一个flask项目时，会先执行app.run()方法，这是整个项目的入口，执行run方法时，接着执行werkzeug模块中的run_simple</p> <p><img src="https://images2018.cnblogs.com/blog/1316789/201808/1316789-20180810225921512-294502634.png" alt="https://images2018.cnblogs.com/blog/1316789/201808/1316789-20180810225921512-294502634.png"></p> <p>werkzeug中触发调用了Flask的<strong>call</strong>方法</p> <h3 id="a-请求进来时"><a href="#a-请求进来时" class="header-anchor">#</a> <strong>a. 请求进来时</strong></h3> <p>触发执行<strong>call</strong>方法，<strong>call</strong>方法的逻辑很简单，直接执行wsgi_app方法，将包含所有请求相关数据和一个响应函数传进去。</p> <p><img src="https://images2018.cnblogs.com/blog/1316789/201808/1316789-20180810231226918-1233584610.png" alt="https://images2018.cnblogs.com/blog/1316789/201808/1316789-20180810231226918-1233584610.png"></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>def application(environ, start_response):
+    start_response('200 OK', [('Content-Type', 'text/html')])
+    return '&lt;h1&gt;Hello, web!&lt;/h1&gt;'
+
+上面的application()函数就是符合WSGI标准的一个HTTP处理函数，它接收两个参数：
+
+    environ：一个包含所有HTTP请求信息的dict对象；
+
+    start_response：一个发送HTTP响应的函数。
+
+在application()函数中，调用：
+
+start_response('200 OK', [('Content-Type', 'text/html')])
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>备注：<strong>call</strong>是一个符合wsgi标准的函数</p> <p>执行wsgi_app方法</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>def wsgi_app(self, environ, start_response):
+
+        ctx = self.request_context(environ)
+        error = None
+        try:
+            try:
+                ctx.push()
+                response = self.full_dispatch_request()
+            except Exception as e:
+                error = e
+                response = self.handle_exception(e)
+            except:
+                error = sys.exc_info()[1]
+                raise
+            return response(environ, start_response)
+        finally:
+            if self.should_ignore_error(error):
+                error = None
+            ctx.auto_pop(error)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>第一步先执行了一个request_context的方法，将environ传进去，最后返回一个RequestContext类的对象，被ctx的变量接收（ctx=request_context(environ)）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code> def request_context(self, environ):
+        &quot;&quot;&quot;Create a :class:`~flask.ctx.RequestContext` representing a
+        WSGI environment. Use a ``with`` block to push the context,
+        which will make :data:`request` point at this request.
+
+        See :doc:`/reqcontext`.
+
+        Typically you should not call this from your own code. A request
+        context is automatically pushed by the :meth:`wsgi_app` when
+        handling a request. Use :meth:`test_request_context` to create
+        an environment and context instead of this method.
+
+        :param environ: a WSGI environment
+        &quot;&quot;&quot;
+        return RequestContext(self, environ)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>这个ctx对象在初始化时，赋了两个非常有用的属性，一个是request，一个是session</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>def __init__(self, app, environ, request=None):
+    self.app = app
+    if request is None:
+        request = app.request_class(environ)
+    self.request = request
+    self.url_adapter = app.create_url_adapter(self.request)
+    self.flashes = None
+    self.session = None
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>这两个属性中request是一个Request()对象，这个对象就是我们在flask中使用的request对象，为我们提供了很多便捷的属性和方法，比如：request.method、request.form、request.args等等，另一个属性是session，初始为None。</p> <p>紧接着执行ctx.push()方法，这个方法中，在执行请求上下文对象ctx之前先实例化了一个app_context对象，先执行了app_context的push方法，然后才执行<em>request_ctx_stack对象中的top和</em>request_ctx_stack.push(self)，最后对ctx中的session进行处理。</p> <p>所以，<strong>flask中的应用上下文发生在请求上下文之前</strong>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>def push(self):
+
+        top = _request_ctx_stack.top
+        if top is not None and top.preserved:
+            top.pop(top._preserved_exc)
+
+        # 在执行request_context请求上下文的push方法时，先执行了app_context应用上下文的push方法
+        app_ctx = _app_ctx_stack.top
+        if app_ctx is None or app_ctx.app != self.app:
+            app_ctx = self.app.app_context()
+            app_ctx.push()
+            self._implicit_app_ctx_stack.append(app_ctx)
+        else:
+            self._implicit_app_ctx_stack.append(None)
+
+        if hasattr(sys, 'exc_clear'):
+            sys.exc_clear()
+
+        # 然后执行请求上下文对象中LocalStack对象的push方法
+        _request_ctx_stack.push(self)
+
+        # 最后处理session
+        if self.session is None:
+            session_interface = self.app.session_interface
+            self.session = session_interface.open_session(
+                self.app, self.request
+            )
+
+            if self.session is None:
+                self.session = session_interface.make_null_session(self.app)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><p>但是我们先说请求上下文，在处理完应用上下文的push方法后，紧接着执行了_request_ctx_stack对象的两个方法。</p> <p>而这个*request_ctx_stack是LocalStack这个类的对象。*request_ctx_stack = LocalStack()</p> <p>LocalStack有没有很眼熟，没错，flask内部使用的机制就是类似于我们上文中自定义的LocalStack的机制，实例化过程中使用了面向对象中的组合概念，self._local = Local()，然后在自身又实现了push、pop、top方法，这三个方法中都是通过反射从Local类的实例化对象中对一个stack属性进行append、pop、[-1]的操作，所以，Local对象中的stack属性对应的值一定是一个类似于列表的东西。通过对列表的操作，实现一个类似于栈的存取。</p> <p>接着聊聊这个Local类，在实例化时，会对每个对象生成一个storage的空字典。我们翻遍整个Local类的源码，发现内部并没有实现一个叫stack的方法或者属性，但是上面我们提到了LocalStack对象会对Local对象中的一个叫stack的东西进行一系列操作。找不到不会报错吗？</p> <p>这就是flask的巧妙之处，通过类的一些魔法方法巧妙的实现了相应的处理。在前引中，提到如果对象中没有某个属性，取值时，最终会执行类中的<strong>getattr</strong>方法，然后再做后续的异常处理，flask将所有的对应逻辑都实现在了类的<strong>getattr</strong>方法中，将每一个线程存储到字典中，在请求进来时，将每一个对应的请求ctx存在一个列表中，使用时直接调用，而不是通过传参的形式，更体现出了flask框架的轻量级。</p> <p>处理完_request_ctx_stack后，就该处理session了。</p> <p>在flask中，处理session时，非常的巧妙，完美的遵循了开闭原则，会先执行session_interface对象的open_session方法，在这个方法中，会先从用户请求的cookie中获取sessionid，获取该用户之前设置的session值，然后将值赋值到ctx.session中。</p> <p>处理完session后，ctx.push方法就执行完了，返回到最开始的app.wsgi_app方法中，执行完push方法后，接着执行full_dispatch_request方法，从这个名字中我们也能猜到，这个方法只要是负责请求的分发。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>def full_dispatch_request(self):
+
+            self.try_trigger_before_first_request_functions()
+            try:
+                request_started.send(self)
+                rv = self.preprocess_request()
+                if rv is None:
+                    rv = self.dispatch_request()
+            except Exception as e:
+                rv = self.handle_user_exception(e)
+            return self.finalize_request(rv)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>在full_dispatch_request方法中先执行preprocess_request方法，这个方法，会先执行所有被before_request装饰器装饰的函数，然后就通过路由的分发执行视图函数了（dispatch_request）</p> <h3 id="b-执行视图函数时"><a href="#b-执行视图函数时" class="header-anchor">#</a> <strong>b. 执行视图函数时</strong></h3> <p>在执行视图函数之前，先执行了before_request，在执行我们的视图函数。</p> <p>视图函数主要处理业务逻辑。在视图函数中可以调用request对象，进行取值，也可以调用session对象对session的存取。</p> <p>在整个request的请求生命周期中，获取请求的数据直接调用request即可，对session进行操作直接调用session即可。request和session都是LocalProxy对象，借助偏函数的概念将对应的值传入<em>lookup_req_object函数。先从</em>request_ctx_stack（LocalStack）对象中获取ctx(请求上下文对象)，再通过反射分别获取request和session属性。整个过程中LocalStack扮演了一个全局仓库的角色，请求进来将数据存取，需要时即去即用。所以，flask实现了在整个请求的生命周期中哪儿需要就直接调用的特色。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>request = LocalProxy(partial(_lookup_req_object, 'request'))
+session = LocalProxy(partial(_lookup_req_object, 'session'))
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="c-请求结束前"><a href="#c-请求结束前" class="header-anchor">#</a> <strong>c. 请求结束前</strong></h3> <p>视图函数执行完后，dispatch_request执行结束，执行full_dispatch_request方法的返回值finalize_request方法。这个方法中，同样的，在返回响应之前，先执行所有被after_request装饰器装饰的函数。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>----&gt;finalize_request ------&gt; process_response
+ def process_response(self, response):
+
+        ctx = _request_ctx_stack.top
+        bp = ctx.request.blueprint
+        funcs = ctx._after_request_functions
+        if bp is not None and bp in self.after_request_funcs:
+            funcs = chain(funcs, reversed(self.after_request_funcs[bp]))
+        if None in self.after_request_funcs:
+            funcs = chain(funcs, reversed(self.after_request_funcs[None]))
+        for handler in funcs:
+            response = handler(response)
+        if not self.session_interface.is_null_session(ctx.session):
+            self.session_interface.save_session(self, ctx.session, response)
+        return response
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>执行process_response过程中，执行完after_request后，然后，执行session的save_session方法。将内存中保存在ctx.session的值取到后，json.dumps()序列化后，写入响应的cookie中（set_cookie），最后返回响应。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    def save_session(self, app, session, response):
+        domain = self.get_cookie_domain(app)
+        path = self.get_cookie_path(app)
+
+        # If the session is modified to be empty, remove the cookie.
+        # If the session is empty, return without setting the cookie.
+        if not session:
+            if session.modified:
+                response.delete_cookie(
+                    app.session_cookie_name,
+                    domain=domain,
+                    path=path
+                )
+
+            return
+
+        # Add a &quot;Vary: Cookie&quot; header if the session was accessed at all.
+        if session.accessed:
+            response.vary.add('Cookie')
+
+        if not self.should_set_cookie(app, session):
+            return
+
+        httponly = self.get_cookie_httponly(app)
+        secure = self.get_cookie_secure(app)
+        samesite = self.get_cookie_samesite(app)
+        expires = self.get_expiration_time(app, session)
+        val = self.get_signing_serializer(app).dumps(dict(session))
+        # set_cookie将session写入响应的cookie中
+        response.set_cookie(
+            app.session_cookie_name,
+            val,
+            expires=expires,
+            httponly=httponly,
+            domain=domain,
+            path=path,
+            secure=secure,
+            samesite=samesite
+        )
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><p>返回响应后，自动的调用<strong>ctx.auto_pop(error)</strong>，将Local中存储的ctx对象pop掉，整个请求结束。</p> <p>请求上下文的执行流程：</p> <p><img src="https://images2018.cnblogs.com/blog/1316789/201808/1316789-20180813170846967-1549165844.png" alt="https://images2018.cnblogs.com/blog/1316789/201808/1316789-20180813170846967-1549165844.png"></p> <h3 id="_2-应用上下文"><a href="#_2-应用上下文" class="header-anchor">#</a> <strong>2 应用上下文</strong></h3> <p>与请求上下文类似，当请求进来时，先实例化一个AppContext对象app_ctx，在实例化的过程中，提供了两个有用的属性，一个是app，一个是g。self.app就是传入的全局的app对象，self.g是一个全局的存储值的对象。接着将这个app_ctx存放到LocalStack()。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class AppContext(object):
+	def __init__(self, app):
+		self.app = app
+		self.url_adapter = app.create_url_adapter(None)
+		self.g = app.app_ctx_globals_class()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>视图函数中，我们就可以调用app对象和g对象，如果我们使用蓝图构建我们的项目时，在每一个直接引用app就会造成循环引用的异常，这时，应用上下文就会显得非常有用，我们可以直接调用current_app就可以在整个生命周期中使用我们的app对象了。比如使用我们的配置项：current_app.config</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>current_app = LocalProxy(_find_app)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>最后，当视图函数执行结束后，从storage中pop掉app_ctx对象。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>from flask import Flask,request,session,g
+
+app = Flask(__name__)  # type:Flask
+
+@app.before_request
+def auth_demo():
+    g.val = 123
+
+@app.route('/')
+def index():
+    print(g.val)
+    return &quot;Hello World&quot;
+
+if __name__ == '__main__':
+    app.run()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p>总结：flask中的上下文管理机制分为请求上下文和应用上下文两大方面，通过上下文的管理机制，实现了即去即用的一个特色。</p> <h3 id="a-应用g"><a href="#a-应用g" class="header-anchor">#</a> <strong>a.应用g</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>from flask import Flask, g, request
+
+app = Flask(__name__)
+
+@app.before_request
+def bf():
+    g.x = 666
+
+@app.route('/n1')
+def n1():
+    print(g.x)  # 这样就可以共享全局的值了,都可以存在g中
+    return 'n1'
+
+@app.route('/n2')
+def n2():
+    print(g.x)
+    return 'n2'
+
+if __name__ == '__main__':
+    app.run()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><h2 id="day04"><a href="#day04" class="header-anchor">#</a> <strong>day04</strong></h2> <h3 id="内容回顾-2"><a href="#内容回顾-2" class="header-anchor">#</a> <strong>内容回顾</strong></h3> <h3 id="今日内容-2"><a href="#今日内容-2" class="header-anchor">#</a> <strong>今日内容</strong></h3> <h3 id="_1、flask-session"><a href="#_1、flask-session" class="header-anchor">#</a> <strong>1、flask_session</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>详细：&lt;https://blog.csdn.net/weixin_43976393/article/details/87983656?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1-87983656-blog-83781020.pc_relevant_antiscanv2&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-1-87983656-blog-83781020.pc_relevant_antiscanv2&amp;utm_relevant_index=1&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>作用：将默认保存的签名cookie中的值，保存到redis/memcached/file/mangodb/SQLAlchemy中</p> <p><strong>注意：session中存储的是字典，修改字典内部元素时，会造成数据不更新，解决方法：</strong></p> <ul><li>motified = True</li> <li>SESSION_REFRESH_EACH_REQUEST = True and session.permanent = True(redis中默认)</li></ul> <p><strong>存入session的方式，将session存入数据库中，不使用默认的了</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&quot;&quot;&quot;
+1. flask-session
+    作用：将默认保存的签名cookie中的值 保存到 redis/memcached/file/Mongodb/SQLAlchemy
+&quot;&quot;&quot;
+from flask import Flask, request, session
+
+app = Flask(__name__)
+app.secret_key = 'abasd'
+
+# 默认的session存储方式
+from flask.sessions import SecureCookieSessionInterface
+app.session_interface = SecureCookieSessionInterface()
+
+# 其他
+# 方式一：保存到redis中
+from redis import Redis
+from flask_session import RedisSessionInterface
+
+app.session_interface = RedisSessionInterface(
+    redis=Redis(host='127.0.0.1', port=6379),
+    key_prefix='rediszz'  # session的前缀
+)
+# 方式二 保存在redis中
+from flask_session import Session
+from redis import Redis
+
+app.config['SESSION_TYPE'] = 'REDIS'
+app.config['SESSION_REDIS'] = Redis(host='', db='', port='', password='', encoding='')
+Session(app)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return 'login'
+    user = request.form.get('user')
+    pwd = request.form.get('pwd')
+    session['user_info'] = {'user': user, 'pwd': pwd}
+    return 'login'
+
+@app.route('/index', methods=['GET'])
+def index():
+    user_info = session.get('user_info')
+    return 'index'
+
+if __name__ == '__main__':
+    app.run()
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><h3 id="_2、数据库连接池"><a href="#_2、数据库连接池" class="header-anchor">#</a> <strong>2、数据库连接池</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>pip install DBUtils
+
+模式：
+  - 每个线程创建一个连接，关闭（默认不关闭），线程终止时，才关闭连接。
+  - 创建共享连接池
+应用：只要写原生SQL，用户数据框连接池
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="_3、wtforms"><a href="#_3、wtforms" class="header-anchor">#</a> <strong>3、wtforms</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>基本使用：&lt;http://www.cnblogs.com/wupeiqi/articles/8202357.html&gt;
+
+作用：用于对python web框架做表单验证。
+
+	使用：
+		class MyForm(Form):
+			user = 类（正则,插件）
+			字段 = 类（正则,插件）
+			字段 = 类（正则,插件）
+			字段 = 类（正则,插件）
+			字段 = 类（正则,插件）
+			字段 = 类（正则,插件）
+
+		form = MyForm()
+		# 生成HTML标签
+		print(form.user) 类.__str__ ==&gt; 插件.xx方法
+
+		# 验证
+		form = MyForm(formdata=request.form)
+		if form.validate():
+			# 内部找到所有的字段：user + 用户发过来的数据 =》 正则校验
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h2 id="day05"><a href="#day05" class="header-anchor">#</a> <strong>day05</strong></h2> <h3 id="内容回顾-3"><a href="#内容回顾-3" class="header-anchor">#</a> <strong>内容回顾</strong></h3> <h3 id="今日内容-3"><a href="#今日内容-3" class="header-anchor">#</a> <strong>今日内容</strong></h3> <h3 id="_1、面向对象相关"><a href="#_1、面向对象相关" class="header-anchor">#</a> <strong>1、面向对象相关</strong></h3> <h3 id="_1-1-mro"><a href="#_1-1-mro" class="header-anchor">#</a> <strong>1.1 <code>__mro__</code></strong></h3> <p>得到类继承的执行顺序</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class A(object):
+    pass
+
+class B(A):
+    pass
+
+class C(object):
+    pass
+
+class D(B, C):
+    pass
+
+print(D.__mro__)
+# 得到类继承的执行顺序
+# (&lt;class '__main__.D'&gt;, &lt;class '__main__.B'&gt;, &lt;class '__main__.A'&gt;, &lt;class '__main__.C'&gt;, &lt;class 'object'&gt;)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="_1-2-dict"><a href="#_1-2-dict" class="header-anchor">#</a> <strong>1.2 <code>__dict__</code></strong></h3> <p>以字典的形式查看对象或者字典的属性</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>class Foo(object):
+    CITY = 'bj'
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def func(self):
+        pass
+
+# print(Foo.CITY)
+# print(Foo.func)
+
+# 类的__ dict __ 属性
+print(Foo.__dict__)
+
+# 类对象 的__ dict __ 属性
+obj1 = Foo('小明', 54)
+print(obj1.__dict__)
+
+# __ dict __  查看对象其属性
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><h3 id="_1-3-metaclass"><a href="#_1-3-metaclass" class="header-anchor">#</a> <strong>1.3 metaclass</strong></h3> <h3 id="_1-创建类的二种方式"><a href="#_1-创建类的二种方式" class="header-anchor">#</a> <strong>1. 创建类的二种方式</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code># 方式一：
+class Foo(object):
+    CITY = &quot;bj&quot;
+
+    def func(self, x):
+        return x + 1
+foo = Foo()
+print(foo.func(10))
+
+# 方式二：
+Foo2 = type('Foo2', (object,), {'CITY': 'bj1', 'func': lambda self, x: x + 1})
+foo2 = Foo2
+print(foo2.CITY)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_2-创建自定义的type类"><a href="#_2-创建自定义的type类" class="header-anchor">#</a> <strong>2.创建自定义的type类</strong></h3> <p><strong>因为类都是继承type去创建的，我们可以继承type,在其前后执行一些操作</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>	1. 默认类由type实例化创建。
+    2. 某个类指定metaclass=MyType，那么当前类的所有派生类都由于MyType创建。
+    3. 实例化对象对象顺序
+      - type.__init__
+      - type.__call__
+      - 类.__new__
+      - 类.__init__
+class MyType(type):
+    def __init__(self,*args,**kwargs):
+        print('创建类之前')
+        super(MyType,self).__init__(*args,**kwargs)  # 创建FOO类
+        print('创建类之后')
+
+class Foo(object,metaclass=MyType): # 当前类，由type类创建。
+    CITY = &quot;bj&quot;
+    def func(self, x):
+        return x + 1
+# ############# 创建类 ###########
+# 1. 创建类的两种方式
+&quot;&quot;&quot;
+class Foo(object,metaclass=type):
+    CITY = &quot;bj&quot;
+
+    def func(self,x):
+        return x + 1
+
+Foo = type('Foo',(object,),{'CITY':'bj','func':lambda self,x:x+1})
+&quot;&quot;&quot;
+
+# 2. 类由自定义type创建
+#    类由type创建，通过metaclass可以指定当前类由那一个type创建。
+&quot;&quot;&quot;
+class MyType(type):
+    def __init__(self,*args,**kwargs):
+        print('创建类之前')
+        super(MyType,self).__init__(*args,**kwargs)
+        print('创建类之后')
+
+class Foo(object,metaclass=MyType): # 当前类，由type类创建。
+    CITY = &quot;bj&quot;
+    def func(self, x):
+        return x + 1
+&quot;&quot;&quot;
+# 3. 类的继承
+#    类的基类中指定了metaclass，那么当前类也是由metaclass指定的类来创建当前类。
+&quot;&quot;&quot;
+class MyType(type):
+    def __init__(self,*args,**kwargs):
+        print('创建类之前')
+        super(MyType,self).__init__(*args,**kwargs)
+        print('创建类之后')
+
+class Foo(object,metaclass=MyType): # 当前类，由type类创建。
+    CITY = &quot;bj&quot;
+    def func(self, x):
+        return x + 1
+
+class Bar(Foo):
+    pass
+&quot;&quot;&quot;
+
+# ################### 变 ##################
+&quot;&quot;&quot;
+class MyType(type):
+    def __init__(self,*args,**kwargs):
+        print('创建类之前')
+        super(MyType,self).__init__(*args,**kwargs)
+        print('创建类之后')
+
+Base = MyType('Base',(object,),{})
+# class Base(object,metaclass=MyType):
+#     pass
+
+class Foo(Base):
+    CITY = &quot;bj&quot;
+    def func(self, x):
+        return x + 1
+&quot;&quot;&quot;
+# ################ 变 #################
+&quot;&quot;&quot;
+class MyType(type):
+    def __init__(self,*args,**kwargs):
+        print('创建类之前')
+        super(MyType,self).__init__(*args,**kwargs)
+        print('创建类之后')
+
+def with_metaclass(arg):
+    return MyType('Base',(arg,),{}) # class Base(object,metaclass=MyType): pass
+
+class Foo(with_metaclass(object)):
+    CITY = &quot;bj&quot;
+    def func(self, x):
+        return x + 1
+&quot;&quot;&quot;
+
+# ########################## 实例化 ######################
+class MyType(type):
+    def __init__(self, *args, **kwargs):
+        super(MyType, self).__init__(*args, **kwargs)
+
+class Foo(object, metaclass=MyType):  # 当前类，由type类创建。
+    pass
+
+&quot;&quot;&quot;
+内部执行顺序
+0. Mytype的__init__
+obj = Foo()
+1. MyType的__call__
+2. Foo的__new__
+3. Foo的__init__
+&quot;&quot;&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br></div></div><h2 id="dayo6"><a href="#dayo6" class="header-anchor">#</a> <strong>dayo6</strong></h2> <h3 id="内容回顾-4"><a href="#内容回顾-4" class="header-anchor">#</a> <strong>内容回顾</strong></h3> <h3 id="今日内容-4"><a href="#今日内容-4" class="header-anchor">#</a> <strong>今日内容</strong></h3> <h3 id="_1、flask-script"><a href="#_1、flask-script" class="header-anchor">#</a> <strong>1、flask_script</strong></h3> <ul><li>python <a href="http://manage.py" target="_blank" rel="noopener noreferrer">manage.py<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> runserver</li> <li>python <a href="http://manage.py" target="_blank" rel="noopener noreferrer">manage.py<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 自定义命令</li></ul> <p>自定义脚本命令</p> <p>a. pip install flask_script</p> <p>b.manager = Manager(app)  # 传递app</p> <p>c. manager.run()  # 改了就可以使用 python <a href="http://manage.py" target="_blank" rel="noopener noreferrer">manage.py<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> runserver运行</p> <p>d.自定义命令脚本</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>from flask_migrate import Migrate
+
+from s8day130_pro import create_app,db
+from flask_script import Manager
+
+app = create_app()
+manager = Manager(app)  # 传递app
+
+@manager.command
+def custom(arg):  # 自定义脚本命令
+    &quot;&quot;&quot;
+    自定义命令
+    python manage.py custom 123
+    :param arg:
+    :return:
+    &quot;&quot;&quot;
+    print(arg)
+
+@manager.option('-n', '--name', dest='name')
+@manager.option('-u', '--url', dest='url')
+def cmd(name, url):
+    &quot;&quot;&quot;
+    自定义命令
+    执行： python manage.py  cmd -n wupeiqi -u &lt;http://www.oldboyedu.com&gt;
+    执行： python manage.py  cmd --name wupeiqi --url &lt;http://www.oldboyedu.com&gt;
+    :param name:
+    :param url:
+    :return:
+    &quot;&quot;&quot;
+    print(name, url)
+
+if __name__ == '__main__':
+    # app.run()
+    manager.run()  # 改了就可以使用 python manage.py runserver运行
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><h3 id="_2、flask-sqlalchemy"><a href="#_2、flask-sqlalchemy" class="header-anchor">#</a> <strong>2、flask-sqlalchemy</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>作用：将SQLAlchemy相关的所有功能都封装到db=flask_sqlalchemy.SQLAlchemy()对象中
+    - 创建表
+        class User(db.Model):
+        pass
+
+    - 操作表
+        db.session
+
+   扩展：离线脚本编写
+      from s8day130_pro import db
+      from s8day130_pro import create_app
+      from s8day130_pro import models
+
+      app = create_app()
+      with app.app_context():
+         # db.drop_all()
+         # db.create_all()
+         data = db.session.query(models.Users).all()
+         print(data)
+   步骤：
+      1. 在 __init__.py中创建db对象
+         from flask_sqlalchemy import SQLAlchemy
+
+         # 包含了SQLAlchemy相关的所有操作
+         db = SQLAlchemy()
+
+      2. 在 __init__.py中create_app函数中让将app传入到db中
+
+         def create_app():
+            app = Flask(__name__)
+            app.config.from_object('settings.DevelopmentConfig')
+
+            from .views.account import ac
+            app.register_blueprint(ac)
+
+            # 看这里看这里
+            db.init_app(app)
+
+            return app
+
+      3. 写配置文件，将连接字符串定义在配置文件中
+             SQLALCHEMY_DATABASE_URI = &quot;mysql+pymysql://root:123456@127.0.0.1:3306/s8day130db?charset=utf8&quot;
+            SQLALCHEMY_POOL_SIZE = 5
+            SQLALCHEMY_POOL_TIMEOUT = 30
+            SQLALCHEMY_POOL_RECYCLE = -1
+
+      4. 定义 s8day130_pro/models.py
+
+            #!/usr/bin/env python
+            # -*- coding:utf-8 -*-
+            from sqlalchemy.ext.declarative import declarative_base
+            from sqlalchemy import Column, Integer, String, UniqueConstraint, Index,DateTime,ForeignKey
+            from s8day130_pro import db
+
+            class Users(db.Model):
+               __tablename__ = 'users'
+               id = Column(Integer, primary_key=True,autoincrement=True)
+               name = Column(String(32),nullable=False,unique=True)
+
+      5. 创建数据库表，编写离线脚本：drop_create_table.py
+            from s8day130_pro import db
+            from s8day130_pro import create_app
+            from s8day130_pro import models
+
+            app = create_app()
+            with app.app_context():
+               db.drop_all()
+               db.create_all()
+               #data = db.session.query(models.Users).all()
+               #print(data)
+
+      6. 在视图函数中使用SQLAlchemy操作数据库
+            from s8day130_pro import models
+            from s8day130_pro import db
+            ac = blueprints.Blueprint('ac',__name__)
+
+            @ac.route('/login',methods=['GET','POST'])
+            def login():
+               data = db.session.query(models.Users).all()
+               print(data)
+               db.session.remove()
+               return 'Login'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br></div></div><h3 id="_3、-sqlalchemy两种创建session的方式"><a href="#_3、-sqlalchemy两种创建session的方式" class="header-anchor">#</a> <strong>3、 SQLAlchemy两种创建session的方式</strong></h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>	方式一：
+         import models
+         from threading import Thread
+         from sqlalchemy.orm import sessionmaker
+         from sqlalchemy import create_engine
+
+         engine =create_engine(&quot;mysql+pymysql://root:123456@127.0.0.1:3306/s8day128db?charset=utf8&quot;,pool_size=2,max_overflow=0)
+         XXXXXX = sessionmaker(bind=engine)
+
+         def task():
+            from sqlalchemy.orm.session import Session
+            session = XXXXXX()
+
+            data = session.query(models.Classes).all()
+            print(data)
+
+            session.close()
+
+         for i in range(10):
+            t = Thread(target=task)
+            t.start()
+
+      方式二（推荐）：
+         import models
+         from threading import Thread
+         from sqlalchemy.orm import sessionmaker
+         from sqlalchemy import create_engine
+         from sqlalchemy.orm import scoped_session
+
+         engine =create_engine(&quot;mysql+pymysql://root:123456@127.0.0.1:3306/s8day128db?charset=utf8&quot;,pool_size=2,max_overflow=0)
+         XXXXXX = sessionmaker(bind=engine)
+
+         session = scoped_session(XXXXXX)
+
+         def task():
+            # 1. 原来的session对象 = 执行session.registry()
+            # 2. 原来session对象.query
+            data = session.query(models.Classes).all()
+            print(data)
+            session.remove()
+
+         for i in range(10):
+            t = Thread(target=task)
+            t.start()
+
+   flask-session默认也是使用的第二种方式：scoped_session
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><h3 id="_4、flask-migrate"><a href="#_4、flask-migrate" class="header-anchor">#</a> <strong>4、flask-migrate</strong></h3> <p>帮助我们像django一样可以生成，迁移数据库</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>	作用：做数据库迁移
+    依赖：
+      flask-script
+      flask-sqlalchemy
+
+   Migrate(app, db)
+   &quot;&quot;&quot;
+   # 数据库迁移命名
+      python manage.py db init
+      python manage.py db migrate # makemigrations
+      python manage.py db upgrade # migrate
+   &quot;&quot;&quot;
+   manager.add_command('db', MigrateCommand)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="_5、多app应用-url进行处理和分发"><a href="#_5、多app应用-url进行处理和分发" class="header-anchor">#</a> <strong>5、多app应用（url进行处理和分发）</strong></h3> <p>多个app一起启动通过前面加app名称去访问对应的app</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>- 多app应用（url进行处理和分发）
+   from flask import Flask
+   from werkzeug.wsgi import DispatcherMiddleware
+   from werkzeug.serving import run_simple
+
+   app01 = Flask('app01')
+   app02 = Flask('app02')
+
+   @app01.route('/login')
+   def login():
+      return 'app01.login'
+
+   @app02.route('/index')
+   def index():
+      return 'app02.index'
+
+   dm = DispatcherMiddleware(app01,{
+      '/app02':        app02,
+   })
+
+   if __name__ == '__main__':
+      run_simple('localhost', 5000,dm)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h3 id="_6、信号-blinker"><a href="#_6、信号-blinker" class="header-anchor">#</a> <strong>6、信号：blinker</strong></h3> <p>请求前，后，中执行信号</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>更多详细：&lt;https://www.cnblogs.com/wupeiqi/articles/8249576.html&gt;
+使用方式：&lt;https://www.cnblogs.com/WiseAdministrator/articles/11217681.html&gt;
+- 信号：blinker
+
+   appcontext_pushed = _signals.signal('appcontext-pushed')
+   request_started = _signals.signal('request-started')
+
+   如果有render:
+      before_render_template = _signals.signal('before-render-template')
+      template_rendered = _signals.signal('template-rendered')
+
+   request_finished = _signals.signal('request-finished')
+
+   如果视图函数有异常：
+      got_request_exception = _signals.signal('got-request-exception')
+
+   request_tearing_down = _signals.signal('request-tearing-down')
+   appcontext_tearing_down = _signals.signal('appcontext-tearing-down')
+
+   appcontext_popped = _signals.signal('appcontext-popped')
+
+   如果使用信号：
+      message_flashed = _signals.signal('message-flashed')
+
+   使用：
+      from flask import Flask,signals,render_template,flash
+
+      app = Flask(__name__)
+
+      def func1(*args,**kwargs):
+         print('触发信号:request_started')
+
+      def func2(*args,**kwargs):
+         print('触发信号:appcontext_pushed')
+
+      signals.request_started.connect(func1)
+      signals.appcontext_pushed.connect(func2)
+
+      @app.route('/login')
+      def login():
+         return render_template('index.html')
+
+      if __name__ == '__main__':
+         app.run()
+
+   问题：信号和before_request区别？
+
+        before_request，可以控制请求是否可以继续往后执行。
+        信号，在原来的基础增加额外的操作和值。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br></div></div><p>1</p></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/YiZhang-You/edit/master/docs/02.python/08.flask/01.flask基础/02.flask基础(2).md" target="_blank" rel="noopener noreferrer">编辑</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <!----></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/6400c2/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">flask基础(1)</div></a> <a href="/pages/c1f9b0/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">flask项目</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/6400c2/" class="prev">flask基础(1)</a></span> <span class="next"><a href="/pages/c1f9b0/">flask项目</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/b7d5ce/"><div>
+            配置yun源
+            <!----></div></a> <span class="date">05-24</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/fc9319/"><div>
+            linux-配置python虚拟环境
+            <!----></div></a> <span class="date">05-24</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/d5b367/"><div>
+            linux文件目录管理
+            <!----></div></a> <span class="date">05-24</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="yyz18071720400@163.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/YiZhang-You" title="GitHub" target="_blank" class="iconfont icon-github"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2023-2023
+    <span>yizhang | <a href="https://github.com/YiZhang-You/pymongoRawQuery" target="_blank">MIT License</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><div></div></div></div>
+    <script src="/assets/js/app.4d9762f5.js" defer></script><script src="/assets/js/2.eb47357b.js" defer></script><script src="/assets/js/202.a1461cd3.js" defer></script>
+  </body>
+</html>
